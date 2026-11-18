@@ -1,0 +1,24 @@
+{
+  "users": [
+    {
+      "username": "Shikha",
+      "password": "JaipurShikha2026!",
+      "role": "admin"
+    },
+    {
+      "username": "Naina",
+      "password": "JaipurNaina2026!",
+      "role": "uploader"
+    },
+    {
+      "username": "Shalini",
+      "password": "JaipurShalini2026!",
+      "role": "uploader"
+    },
+    {
+      "username": "Rishabh",
+      "password": "JaipurRishabh2026!",
+      "role": "uploader"
+    }
+  ]
+}

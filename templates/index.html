@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f3ec">
+    <meta name="description" content="A shared photo album for our Jaipur hackathon trip.">
+    <title>Jaipur Memories — the trip, together</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js" defer></script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="wordmark" href="/" aria-label="Jaipur Memories home">
+          <span class="wordmark-icon" aria-hidden="true">J</span>
+          <span>Jaipur <span class="wordmark-light">Memories</span></span>
+        </a>
+        <div class="header-actions" id="header-actions" hidden>
+          <span class="welcome-copy">A lovely day, <strong id="user-name"></strong></span>
+          <button class="button button-outline" id="upload-button" type="button" hidden>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5M5 14v5h14v-5"/></svg>
+            <span>Upload photo</span>
+          </button>
+          <button class="button button-quiet" id="logout-button" type="button">Log out</button>
+        </div>
+      </header>
+
+      <main>
+        <section class="login-view" id="login-view" aria-labelledby="login-title">
+          <div class="login-art" aria-hidden="true">
+            <div class="sun-disc"></div>
+            <div class="arch arch-outer"><div class="arch-inner"></div></div>
+            <div class="art-caption"><span>26° 55' N · 75° 49' E</span><span>Pink City, Rajasthan</span></div>
+          </div>
+          <div class="login-panel">
+            <p class="eyebrow"><span class="eyebrow-line"></span> One trip. A thousand little moments.</p>
+            <h1 id="login-title">The best memories<br>are <em>shared.</em></h1>
+            <p class="login-intro">Our Jaipur story, all in one place. Sign in to wander through the photos and relive the good bits.</p>
+            <form class="login-form" id="login-form">
+              <label for="username">Your name</label>
+              <input id="username" name="username" type="text" autocomplete="username" placeholder="e.g. Shikha" required>
+              <label for="password">Password</label>
+              <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+              <p class="form-message" id="login-message" role="alert" aria-live="polite"></p>
+              <button class="button button-primary login-submit" id="login-submit" type="submit">
+                <span>Open the album</span>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg>
+              </button>
+            </form>
+            <p class="login-footnote"><span class="lock-mark" aria-hidden="true">✳</span> Just for our Jaipur crew</p>
+          </div>
+        </section>
+
+        <section class="gallery-view" id="gallery-view" hidden aria-labelledby="gallery-title">
+          <div class="gallery-heading">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span> Our little corner of Rajasthan</p>
+              <h1 id="gallery-title">Postcards from <em>Jaipur.</em></h1>
+              <p class="gallery-subtitle">A few days away, forever close.</p>
+            </div>
+            <p class="photo-count" id="photo-count" aria-live="polite"></p>
+          </div>
+          <p class="gallery-message" id="gallery-message" role="status" aria-live="polite"></p>
+          <div class="photo-grid" id="photo-grid" aria-label="Jaipur trip photos"></div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <span>Made of memories &amp; a little bit of pink.</span>
+        <span>Jaipur · 2026</span>
+      </footer>
+    </div>
+
+    <input id="photo-input" type="file" accept="image/jpeg,image/png,image/gif,image/webp,.jpg,.jpeg,.png,.gif,.webp" hidden>
+
+    <dialog class="lightbox" id="lightbox" aria-label="Photo preview">
+      <div class="lightbox-toolbar">
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+        <div class="lightbox-actions">
+          <a class="lightbox-download" id="lightbox-download" href="#" download aria-label="Download photo" title="Download photo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 17v4h14v-4"/></svg>
+          </a>
+          <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close preview" title="Close">×</button>
+        </div>
+      </div>
+      <img class="lightbox-image" id="lightbox-image" alt="">
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
